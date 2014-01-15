@@ -110,7 +110,32 @@
     _calculateField.text = [_calculateField.text stringByAppendingString:@"-"];
 }
 - (IBAction)typeEqual:(id)sender {
+    int result = 0;
+    NSString* formula = _calculateField.text;
+    int length = formula.length;
+    //
+    int startPos = 0;
+    int num1;
+    int num2;
     
+    // 循环整个字符串
+    for (int i = 0; i < length; i++) {
+        char temp = [formula characterAtIndex:i];
+        
+        if (temp == '+' || temp == '-') {
+            // 获取字符串中的第一个数字
+            num1 = [[formula substringWithRange:NSMakeRange(startPos, i - startPos)] integerValue];
+            num2 = [[formula substringWithRange:NSMakeRange(i + 1, length - i - 1)] integerValue];
+            if(temp == '+') {
+                result = num1 + num2;
+            } else {
+                result = num1 - num2;
+            }
+            break;
+        }
+    }
+    
+    _calculateField.text = [@(result) description];
 }
 - (IBAction)typeClear:(id)sender {
     _calculateField.text = @"";
