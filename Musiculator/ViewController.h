@@ -50,4 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *equalBtn;
 - (IBAction)typeEqual:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *clearBtn;
+- (IBAction)typeClear:(id)sender;
+
 @end
