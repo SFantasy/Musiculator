@@ -7,12 +7,24 @@
 //
 
 #import "ViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+- (void)playSound : (NSString*) id
+{
+    // 增加按键声音
+    SystemSoundID soundID;
+    
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:id ofType:@"mp3"];
+    CFURLRef soundUrl = (__bridge CFURLRef)[NSURL fileURLWithPath:soundPath];
+    AudioServicesCreateSystemSoundID(soundUrl, &soundID);
+    AudioServicesPlaySystemSound(soundID);
+}
 
 - (void)viewDidLoad
 {
@@ -74,33 +86,43 @@
 }
 
 - (IBAction)typeZero:(id)sender {
+    [self playSound:@"17"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"0"];
 }
 - (IBAction)typeOne:(id)sender {
+    [self playSound:@"21"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"1"];
 }
 - (IBAction)typeTwo:(id)sender {
+    [self playSound:@"22"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"2"];
 }
 - (IBAction)typeThree:(id)sender {
+    [self playSound:@"23"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"3"];
 }
 - (IBAction)typeFour:(id)sender {
+    [self playSound:@"24"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"4"];
 }
 - (IBAction)typeFive:(id)sender {
+    [self playSound:@"25"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"5"];
 }
 - (IBAction)typeSix:(id)sender {
+    [self playSound:@"26"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"6"];
 }
 - (IBAction)typeSeven:(id)sender {
+    [self playSound:@"27"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"7"];
 }
 - (IBAction)typeEight:(id)sender {
+    [self playSound:@"31"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"8"];
 }
 - (IBAction)typeNine:(id)sender {
+    [self playSound:@"32"];
     _calculateField.text = [_calculateField.text stringByAppendingString:@"9"];
 }
 - (IBAction)typePlus:(id)sender {
