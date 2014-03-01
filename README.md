@@ -1,4 +1,4 @@
-Musiculator
+Musiculator ![travis](https://travis-ci.org/SFantasy/Musiculator.png)
 ---
 
 Music + calculator = Musiculator
