@@ -54,7 +54,7 @@
     [self setButtonStyle:_plusBtn];
     [self setButtonStyle:_minusBtn];
     [self setButtonStyle:_clearBtn];
-    [self setButtonStyle:_equalBtn];
+//    [self setButtonStyle:_equalBtn];
 }
 
 - (void)didReceiveMemoryWarning
